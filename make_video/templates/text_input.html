@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Input Page</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .input-field {
+            width: 300px;
+            padding: 10px;
+            border: 2px solid #ffea03;
+            border-radius: 10px;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+        .input-field::placeholder {
+            color: #ffea03;
+        }
+        .download-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffea03;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .download-button:hover {
+            background-color: #e6d203;
+        }
+        .text {
+            color: #ffea03;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text">Введите текст для создания видео</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                {{ form.user_text.label}}
+                {{ form.user_text }}
+            </div>
+            <button type="submit" class="download-button">Создать видео</button>
+        </form>
+    </div>
+</body>
+</html>
